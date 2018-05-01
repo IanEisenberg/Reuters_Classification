@@ -23,7 +23,7 @@ def tokenize(text, lemmatize=True, vocab=None):
     return filtered_tokens
 
 # not building a recurrent network, so we need a way to weight the different words.
-def tf_idf(docs):
+def tf_idf(docs, tokenize):
     tfidf = TfidfVectorizer(tokenizer=tokenize, min_df=3,
                         max_df=0.90, max_features=30000,
                         use_idf=True, sublinear_tf=True,
